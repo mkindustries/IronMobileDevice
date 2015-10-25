@@ -1,0 +1,26 @@
+import clr
+from System import *
+Console.Clear()
+clr.AddReference('System.Windows.Forms')
+clr.AddReferenceToFile('MK.MobileDevice.Lite.dll')
+from System.Windows.Forms import *
+from MK.MobileDevice.Lite import *
+
+def iph_connect(s, e):
+	Console.WriteLine('Device Connected.')
+	Console.WriteLine('Device is named {0}, an {1} running iOS {2}', iph.DeviceName, iph.DeviceProductType, iph.DeviceVersion)
+
+print('Copyright (c) 2015 MK Industries, ExaPhaser Inc.')
+print('IronMobileDevice (ExaScript) - ExaPhaser')
+Console.WriteLine('''
+MK.MobileDevice.Lite
+(c) 2015 MK Industries and ExaPhaser Industries
+Created and Developed by MK and ExaPhaser in collaboration.
+Source code is available on GitHub at http://github.com/mkindustries.
+''')
+
+iph = iOSDeviceMK()
+#Console.Clear()
+iph.Connect += iph_connect
+while True:
+	pass
